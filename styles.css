@@ -722,22 +722,23 @@ body {
 
 /* WhatsApp Flotante */
 .whatsapp-float {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background: linear-gradient(135deg, #25D366, #128C7E);
-    color: white;
-    padding: 12px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 5px 25px rgba(37, 211, 102, 0.5);
-    z-index: 1000;
-    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Espacio entre el icono SVG y el texto */
+    /* ... tus otros estilos de posición, fondo verde, etc. ... */
+}
+
+.whatsapp-icon {
     display: flex;
     align-items: center;
-    gap: 8px;
-    border: 2px solid white;
+    justify-content: center;
+    color: #fff; /* Asegura que el SVG sea blanco */
+}
+
+.whatsapp-icon svg {
+    width: 24px;
+    height: 24px;
 }
 
 .whatsapp-float:hover {
@@ -746,10 +747,7 @@ body {
     box-shadow: 0 8px 30px rgba(37, 211, 102, 0.7);
 }
 
-.whatsapp-icon {
-    font-size: 1.3rem;
-    animation: pulse 2s infinite;
-}
+
 
 .whatsapp-text {
     font-size: 0.9rem;
