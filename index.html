@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Android para todos | Creamos tu App Android</title>
+    
+    <meta name="theme-color" content="#25d366">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="fotos/icon-192.png">
+    <link rel="manifest" href="manifest.json">
+
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -48,7 +55,8 @@
             Tu navegador no soporta el elemento de video.
         </video>
     </div>
-<img src="fotos/calendarpng.png" alt="escaneando codigo qr" class="showcase-img">
+    <img src="fotos/calendarpng.png" alt="escaneando codigo qr" class="showcase-img">
+    
     <section class="showcase">
         <div class="container">
             <div class="showcase-content">
@@ -144,12 +152,6 @@
         <h3 style="text-align: center;"><a href="demos.html"> Te invitamos a ver algunos demos de páginas </a></h3>
     </section>
 
-    <section class="location-section">
-        <div class="container">
-            <h3><a href="demos.html"> Te invitamos a ver algunos demos de páginas </a></h3>
-        </div>
-    </section> 
-
     <section class="demo-section">
         <div class="container">
             <div class="demo-content">
@@ -161,7 +163,6 @@
         </div>
     </section>
 
-    <!-- Botón WhatsApp Flotante con Icono SVG Corregido -->
     <a href="https://wa.me/4427128200?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20tener%20una%20p%C3%A1gina%20web%20y%20una%20app%20Android%20propia%20para%20mi%20negocio." 
        class="whatsapp-float" 
        target="_blank" 
@@ -176,6 +177,15 @@
        <span class="whatsapp-text">WhatsApp</span>
     </a>
 
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('Service Worker registrado con éxito.', reg))
+                    .catch(err => console.error('Error al registrar el Service Worker.', err));
+            });
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
