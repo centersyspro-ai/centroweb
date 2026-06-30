@@ -1,26 +1,15 @@
-const CACHE_NAME = 'centersys-pwa-v2';
+const CACHE_NAME = 'centersys-pwa-v3';
 const ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/styles.css',
-  '/script.js',
-  '/fotos/logo_centro.png',
-  '/fotos/mobile-fitness.jpg',
-  '/fotos/pizza-cell.jpg',
-  '/fotos/taxiapp1.jpg',
-  '/fotos/ban1.png',
-  '/fotos/calendarpng.png',
-  '/fotos/scanning_qr.png',
-  '/fotos/calendarjpg.jpg',
-  '/fotos/3mobile.jpg'
+  './',
+  './index.html'
 ];
 
-// Instalación del Service Worker e inclusión de recursos estáticos en caché
+// Instalación del Service Worker e inclusión de recursos estáticos básicos
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
-        console.log('Cacheando recursos de la PWA...');
+        console.log('Cacheando recursos esenciales de la PWA...');
         return cache.addAll(ASSETS_TO_CACHE);
       })
       .then(() => self.skipWaiting())
@@ -43,17 +32,25 @@ self.addEventListener('activate', event => {
   );
 });
 
-// Estrategia: Cache First, fallback a Red
+// Estrategia Stale-While-Revalidate (Carga rápido, actualiza de fondo de forma dinámica)
 self.addEventListener('fetch', event => {
-  // Ignoramos peticiones de archivos de video pesados para evitar problemas de streaming en caché
   if (event.request.url.includes('/videos/')) {
     return;
   }
   
   event.respondWith(
     caches.match(event.request)
-      .then(response => {
-        return response || fetch(event.request);
+      .then(cachedResponse => {
+        if (cachedResponse) {
+          fetch(event.request).then(networkResponse => {
+            if (networkResponse.status === 200) {
+              caches.open(CACHE_NAME).then(cache => cache.put(event.request, networkResponse));
+            }
+          }).catch(() => {/* Ignorar errores de red de fondo */});
+          
+          return cachedResponse;
+        }
+        return fetch(event.request);
       })
   );
 });

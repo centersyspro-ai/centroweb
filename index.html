@@ -8,10 +8,45 @@
     <meta name="theme-color" content="#25d366">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon" href="fotos/icon-192.png">
-    <link rel="manifest" href="manifest.json">
+    <link class="apple-touch-icon" href="fotos/icon-192.png">
+    <link rel="manifest" href="./manifest.json">
 
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Estilos personalizados para el Botón Alargado de Instalación PWA -->
+    <style>
+        .pwa-install-container {
+            position: fixed;
+            bottom: 85px; /* Colocado justo encima del botón de WhatsApp */
+            right: 20px;
+            z-index: 99998;
+            display: none; /* Se mantiene oculto hasta que sea instalable */
+        }
+        .pwa-horizontal-btn {
+            background-color: #25d366; /* Mismo color verde de tu tema para armonizar */
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 24px;
+            font-weight: bold;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        .pwa-horizontal-btn:hover {
+            transform: scale(1.05);
+        }
+        .pwa-horizontal-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+    </style>
 </head>
 <body>
     <header class="main-header">
@@ -163,6 +198,17 @@
         </div>
     </section>
 
+    <!-- PWA Horizontal Install Button Container -->
+    <div id="pwaInstallContainer" class="pwa-install-container">
+        <button id="pwaHorizontalBtn" class="pwa-horizontal-btn" aria-label="Instalar Aplicación">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7L135 185.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l144 144c12.5 12.5 32.8 12.5 45.3 0l144-144c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-89.3 89.3V32zM64 352c-17.7 0-32 14.3-32 32v64c0 35.3 28.7 64 64 64H416c35.3 0 64-28.7 64-64V384c0-17.7-14.3-32-32-32s-32 14.3-32 32v64c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V384c0-17.7-14.3-32-32-32z"/>
+            </svg>
+            <span>Instalar App</span>
+        </button>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/4427128200?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20tener%20una%20p%C3%A1gina%20web%20y%20una%20app%20Android%20propia%20para%20mi%20negocio." 
        class="whatsapp-float" 
        target="_blank" 
@@ -177,14 +223,53 @@
        <span class="whatsapp-text">WhatsApp</span>
     </a>
 
+    <!-- Lógica de control inteligente de la PWA -->
     <script>
+        let deferredPrompt;
+        const pwaContainer = document.getElementById('pwaInstallContainer');
+        const installBtn = document.getElementById('pwaHorizontalBtn');
+
+        // 1. Registro seguro usando rutas relativas de subcarpeta
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(reg => console.log('Service Worker registrado con éxito.', reg))
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('Service Worker registrado de forma relativa con éxito.', reg))
                     .catch(err => console.error('Error al registrar el Service Worker.', err));
             });
         }
+
+        // 2. Interceptar evento de instalación nativo
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            if (pwaContainer) {
+                pwaContainer.style.display = 'block';
+            }
+        });
+
+        // 3. Disparar prompt manual al dar clic al botón alargado
+        if (installBtn) {
+            installBtn.addEventListener('click', async () => {
+                if (!deferredPrompt) return;
+                deferredPrompt.prompt();
+                
+                const { outcome } = await deferredPrompt.userChoice;
+                console.log(`Elección de instalación del usuario: ${outcome}`);
+                
+                deferredPrompt = null;
+                if (pwaContainer) {
+                    pwaContainer.style.display = 'none';
+                }
+            });
+        }
+
+        // 4. Limpieza si se instala exitosamente
+        window.addEventListener('appinstalled', () => {
+            console.log('¡PWA de Centrosys instalada con éxito!');
+            if (pwaContainer) {
+                pwaContainer.style.display = 'none';
+            }
+        });
     </script>
     <script src="script.js"></script>
 </body>
