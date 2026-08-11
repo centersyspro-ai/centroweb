@@ -1,7 +1,7 @@
 {
-  "name": "Android para todos - Centrosys",
+  "name": "Aplicacion para todos - Centroweb",
   "short_name": "AndroidParaTodos",
-  "description": "Diseñamos una Página y Aplicación Android para tu negocio.",
+  "description": "Diseñamos una Página y Aplicación para tu negocio.",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
