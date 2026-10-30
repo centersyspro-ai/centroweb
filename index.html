@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Reputación en Google Maps | Tu negocio activo y confiable</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        google: {
+                            blue: '#1a73e8',
+                            green: '#34a853',
+                            yellow: '#fbbc04',
+                            red: '#ea4335',
+                            dark: '#202124'
+                        },
+                        whatsapp: '#25D366'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Personalizados para hover y efectos de brillo */
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .hover-glow {
+            transition: all 0.3s ease;
+        }
+        .hover-glow:hover {
+            box-shadow: 0 0 20px rgba(26, 115, 232, 0.4);
+        }
+        .hover-zoom-img img {
+            transition: transform 0.5s ease;
+        }
+        .hover-zoom-img:hover img {
+            transform: scale(1.05);
+        }
+        .title-hover {
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+        .title-hover:hover {
+            color: #1a73e8;
+            transform: translateX(4px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-google-blue selection:text-white">
+
+    <!-- NAV / HEADER -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo / Nombre -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-google-blue text-white flex items-center justify-center font-bold text-xl shadow-md group-hover:scale-105 transition-transform">
+                    <i class="fa-solid me-0 fa-location-dot"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-bold text-slate-900 block leading-tight group-hover:text-google-blue transition-colors">CentroWeb</span>
+                    <span class="text-xs text-slate-500 font-medium">Gestión en Google Maps</span>
+                </div>
+            </a>
+
+            <!-- Navegación Escritorio -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+                <a href="#servicios" class="hover:text-google-blue transition-colors">¿Qué Incluye?</a>
+                <a href="#transparencia" class="hover:text-google-blue transition-colors">Garantía</a>
+                <a href="#precios" class="hover:text-google-blue transition-colors">Precios</a>
+                <a href="#faq" class="hover:text-google-blue transition-colors">Preguntas Frecuentes</a>
+            </nav>
+
+            <!-- Botón WhatsApp Header -->
+            <a href="https://wa.me/524427128200?text=Hola,%20me%20interesa%20el%20servicio%20de%20Gestión%20de%20Reputación%20en%20Google%20Maps" 
+               target="_blank"
+               class="hidden sm:inline-flex items-center gap-2 bg-whatsapp hover:bg-emerald-600 text-white px-5 py-2.5 rounded-full font-bold text-sm shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>Contactar por WhatsApp</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-gradient-to-b from-white via-slate-50 to-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Textos -->
+                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-google-blue text-xs sm:text-sm font-semibold">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>100% Gestionado por Expertos en Google Business Profile</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-none">
+                        Haz que tu negocio se vea <span class="text-transparent bg-clip-text bg-gradient-to-r from-google-blue via-blue-600 to-indigo-600">activo y confiable</span> en Google Maps
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Nos encargamos de tu perfil de Google Business para que acumules opiniones reales, respondemos a las reseñas de todos tus clientes y eso mantiene tu perfíl activo en Google Maps. <strong class="text-slate-800">Tú no tienes que tocar nada.</strong>
+                    </p>
+
+                    <!-- Puntos clave del Hero -->
+                    <div class="grid sm:grid-cols-2 gap-3 pt-2 text-left max-w-lg mx-auto lg:mx-0">
+                        <div class="flex items-center gap-2 text-slate-700 text-sm font-medium">
+                            <i class="fa-solid fa-circle-check text-google-green text-lg"></i>
+                            <span>Te enviamos el código QR para imprimir, es donde tus clientes lo escanean para dejar reseñas.</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-700 text-sm font-medium">
+                            <i class="fa-solid fa-circle-check text-google-green text-lg"></i>
+                            <span>Respondemos las Reseñas de tus clientes en 24-48 hrs</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-700 text-sm font-medium">
+                            <i class="fa-solid fa-circle-check text-google-green text-lg"></i>
+                            <span>Mantienes tu reputación activa en Google Maps</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-700 text-sm font-medium">
+                            <i class="fa-solid fa-circle-check text-google-green text-lg"></i>
+                            <span>Reporte Mensual Claramente detallado.</span>
+                        </div>
+                    </div>
+
+                    <!-- Botones CTA Hero -->
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="https://wa.me/524427128200?text=Hola,%20me%20interesa%20el%20servicio%20de%20Gestión%20de%20Reputación%20en%20Google%20Maps" 
+                           target="_blank"
+                           class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-whatsapp hover:bg-emerald-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all hover-lift">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <span>Comenzar por WhatsApp</span>
+                        </a>
+                        <a href="#servicios" 
+                           class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-6 py-4 rounded-2xl font-semibold text-base transition-all hover:border-slate-300">
+                            <span>Saber más</span>
+                            <i class="fa-solid fa-arrow-down text-sm text-slate-400"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagen del Hero (qrone.png) -->
+                <div class="lg:col-span-5">
+                    <div class="relative mx-auto max-w-md lg:max-w-none hover-zoom-img rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 group">
+                        <div class="aspect-[4/3] bg-gradient-to-tr from-slate-900 to-slate-800 flex items-center justify-center overflow-hidden">
+                            <img src="qrone.png" alt="Código QR para reseñas de Google Maps" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        
+                        <!-- Badge flotante de estrellas -->
+                        <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-slate-100 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 font-bold">
+                                    5.0
+                                </div>
+                                <div>
+                                    <div class="flex text-yellow-400 text-xs gap-0.5">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <span class="text-xs font-semibold text-slate-700">Reseñas Verificadas</span>
+                                </div>
+                            </div>
+                            <span class="text-xs font-bold text-google-blue bg-blue-50 px-2.5 py-1 rounded-full">Google Maps</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- QUÉ INCLUYE EL SERVICIO -->
+    <section id="servicios" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold tracking-widest text-google-blue uppercase mb-2">Servicio Integral Mensual</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 title-hover">¿Qué hacemos por tu negocio todos los meses?</h3>
+                <p class="mt-4 text-lg text-slate-600">Nos encargamos del 100% de la gestión técnica y operativa. Tú solo atiende a tus clientes.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Tarjeta 1 -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100 hover-lift relative overflow-hidden group">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-100 text-google-blue flex items-center justify-center text-2xl mb-6 group-hover:bg-google-blue group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-google-blue transition-colors">Optimización del Perfil de tu negocio en Google Maps</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Actualizamos las fotos que nos proporcionas de tu negocio, Hacemos cambios de fotos contínuamente de tu perfil, revisamos la descripción detallada de tus servicios y mantenemos la ficha de tu negocio "vivo y activo" ante Google.
+                    </p>
+                </div>
+
+                <!-- Tarjeta 2 -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100 hover-lift relative overflow-hidden group">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-google-green flex items-center justify-center text-2xl mb-6 group-hover:bg-google-green group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-qrcode"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-google-green transition-colors">Link Directo + con códigoQR</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Generamos un enlace directo para opinar en 1 clic y te entregamos un diseño con código QR listo para imprimir y colocar en tu mostrador o mesa. Así tus clientes, al finalizar el servicio, leen el QR y hacen reseñas sobre tu negocio, lo que te beneficia para aparecer en las búsquedas de Google Maps.
+                    </p>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100 hover-lift relative overflow-hidden group">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl mb-6 group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition-colors">Envíos Recordatorios</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Enviamos mensajes recordatorios por WhatsApp o SMS a los clientes que atiendas para invitarlos amablemente a dejar su opinión positiva, eso da una imagen de negocio atento y dinámico, de lo contrario aparece como descuidado y muerto. Google mide la actividad en tu perfil y en las búsquedas recomienda negocios con reseñas de más estrellas pero también perfiles activos.                  </p>
+                </div>
+
+                <!-- Tarjeta 4 -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100 hover-lift relative overflow-hidden group">
+                    <div class="w-14 h-14 rounded-2xl bg-rose-100 text-google-red flex items-center justify-center text-2xl mb-6 group-hover:bg-google-red group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-google-red transition-colors">Respuesta Profesional 24/48h</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Redactamos y publicamos respuestas a TODAS las reseñas (positivas y negativas) en nombre de tu negocio, mencionando tu servicio y zona de forma natural para reforzar el SEO local.
+                    </p>
+                </div>
+
+                <!-- Tarjeta 5 -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100 hover-lift relative overflow-hidden group">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl mb-6 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-file-lines"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-purple-600 transition-colors">Reporte Mensual Simple</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Recibes un reporte de 1 sola página fácil de leer: cuántas reseñas nuevas obtuviste, calificación promedio, respuestas entregadas y visitas al perfil.
+                    </p>
+                </div>
+
+                <!-- Tarjeta 6 (Destacada Cero Esfuerzo) -->
+                <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl p-8 hover-lift relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-white/10 text-whatsapp flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-couch"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-white">Tranquilidad Total</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Tú no tienes que usar computadora, no configuras nada ni pierdes tiempo redactando. Ese trabajo de interactuar con tus clientes y verte activo en Google maps lo hacemos por tí.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-700/60 mt-4">
+                        <span class="text-xs font-semibold text-whatsapp uppercase tracking-wider">Tu te enfocas en dar un servicio a tus clientes, nosotros gestionamos tu ficha de Google Maps.</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN TRANSPARENCIA Y GARANTÍA -->
+    <section id="transparencia" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-slate-200/80">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="px-3 py-1 rounded-full bg-emerald-100 text-google-green font-bold text-xs uppercase tracking-wider">Honestidad y Claridad</span>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 title-hover">Sin trucos ni promesas falsas</h3>
+                    <p class="text-slate-600 mt-2">Creemos en un trabajo profesional, honesto y sostenido en el tiempo.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Lo que NO prometemos -->
+                    <div class="bg-rose-50/60 border border-rose-100 rounded-2xl p-6 sm:p-8">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-rose-500 text-white flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-xmark"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-slate-900">Lo que NO prometemos</h4>
+                        </div>
+                        <ul class="space-y-3 text-slate-700 text-sm">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-xmark text-rose-500 mt-1"></i>
+                                <span><strong>NO es magia ni milagros:</strong> No garantizamos de la noche a la mañana el primer lugar automático en Maps (Google también considera la constancia de las interacciones con el cliente y la relevancia de sus reseñas).</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-xmark text-rose-500 mt-1"></i>
+                                <span><strong>NO inventamos o vendemos reseñas falsas:</strong> Cuidamos la integridad y salud de tu perfil para evitar penalizaciones y suspensión de cuentas de Google Busines Profile.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Lo que SÍ garantizamos -->
+                    <div class="bg-emerald-50/60 border border-emerald-100 rounded-2xl p-6 sm:p-8">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-google-green text-white flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-slate-900">Lo que SÍ garantizamos</h4>
+                        </div>
+                        <ul class="space-y-3 text-slate-700 text-sm">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-google-green mt-1"></i>
+                                <span><strong>Una imagen mucho más confiable y activa de su negocio:</strong> Su negocio destacará notablemente por encima de la competencia de su zona.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-google-green mt-1"></i>
+                                <span><strong>Acumulación de reseñas reales:</strong> Enviamos invitaciones a tus Clientes a dejar comentarios reales que influyen directamente en la decisión de compra de nuevos usuarios.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-google-green mt-1"></i>
+                                <span><strong>Actividad constante en tu perfil:</strong> Respondemos por tí a tus clientes para mantener fresca la ficha de tu negocio en Google Maps.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRECIOS TRANSPARENTES -->
+    <section id="precios" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold tracking-widest text-google-blue uppercase mb-2">Precios Accesibles y Sin Sorpresas</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 title-hover">Un plan pensado para pequeños y medianos negocios</h3>
+            </div>
+
+            <div class="max-w-lg mx-auto bg-gradient-to-b from-slate-900 to-slate-800 text-white rounded-3xl p-8 sm:p-10 shadow-2xl border border-slate-700 relative hover-lift">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-google-blue text-white font-bold text-xs uppercase px-4 py-1.5 rounded-full shadow-md">
+                    Servicio Completo Gestionado
+                </div>
+
+                <div class="text-center pb-8 border-b border-slate-700">
+                    <span class="text-slate-400 font-medium text-sm">Mensualidad</span>
+                    <div class="flex items-center justify-center gap-1 mt-2">
+                        <span class="text-3xl font-bold text-slate-300">$</span>
+                        <span class="text-6xl font-black tracking-tight text-white">350</span>
+                        <span class="text-slate-400 font-medium text-sm self-end mb-2">MXN / mes</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-2">Cancela o pausa cuando lo desees</p>
+                </div>
+
+                <div class="py-6 border-b border-slate-700 space-y-4 text-sm text-slate-300">
+                    <div class="flex items-center justify-between font-semibold text-white">
+                        <span>Configuración / Setup Inicial (única vez):</span>
+                        <span class="text-google-yellow">$600 MXN</span>
+                    </div>
+                    <p class="text-xs text-slate-400 italic">
+                        *Incluye reclamo/verificación de ficha (su perfil de negocio), corrección total de datos, Optimización de perfil de Google Business (fotos, servicios, horarios, publicaciones), generación de enlace directo y diseño del QR listo para imprimir.
+                    </p>
+                    
+                    <hr class="border-slate-700/50 my-4">
+
+                    <ul class="space-y-3 text-slate-200">
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-check text-whatsapp"></i>
+                            <span>Respuesta a opiniones en 24-48 horas.</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-check text-whatsapp"></i>
+                            <span>Fotos y publicaciones semanales.</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-check text-whatsapp"></i>
+                            <span>Envíos de recordatorios a clientes.</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-check text-whatsapp"></i>
+                            <span>Reporte mensual de 1 sola página.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="pt-8 text-center space-y-4">
+                    <a href="https://wa.me/524427128200?text=Hola,%20quiero%20contratar%20el%20servicio%20de%20Gestión%20de%20Reputación%20en%20Google%20Maps" 
+                       target="_blank"
+                       class="w-full inline-flex items-center justify-center gap-3 bg-whatsapp hover:bg-emerald-600 text-white font-bold py-4 px-6 rounded-2xl shadow-lg transition-all text-base hover-glow">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        <span>Contratar Ahora por WhatsApp</span>
+                    </a>
+                    <p class="text-xs text-slate-400">Atención rápida y directa en todo México.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES / GUION DE OBJETACIONES -->
+    <section id="faq" class="py-20 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-xs font-bold tracking-widest text-google-blue uppercase mb-2">Resolvemos tus dudas</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 title-hover">Preguntas Frecuentes</h3>
+            </div>
+
+            <div class="space-y-6">
+                
+                <!-- Pregunta 1 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 hover:border-google-blue transition-colors">
+                    <h4 class="text-lg font-bold text-slate-900 flex items-center gap-3 mb-2">
+                        <i class="fa-solid fa-circle-question text-google-blue"></i>
+                        <span>"Yo no uso computadora ni entiendo de tecnología, ¿puedo contratarlo?"</span>
+                    </h4>
+                    <p class="text-slate-600 text-sm leading-relaxed pl-7">
+                        <strong>Exacto, por eso lo hacemos todo por ti.</strong> Tú no tienes que tocar nada. Nosotros te entregamos el código QR listo para imprimir, lo dejas en tu mostrador. Tu cliente lo escanea con su celular al terminar el servicio, deja su reseña, y nosotros nos encargamos de contestarle. Tú sigues atendiendo tu negocio como siempre.
+                    </p>
+                </div>
+
+                <!-- Pregunta 2 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 hover:border-google-blue transition-colors">
+                    <h4 class="text-lg font-bold text-slate-900 flex items-center gap-3 mb-2">
+                        <i class="fa-solid fa-circle-question text-google-blue"></i>
+                        <span>"¿Para qué me sirve acumular reseñas en Google?"</span>
+                    </h4>
+                    <p class="text-slate-600 text-sm leading-relaxed pl-7">
+                        Para que el cliente nuevo que busca tu servicio en Google vea que tienes muchas reseñas buenas y confíe en ti antes de ir. Un negocio sin reseñas parece abandonado o sin clientela; el que tiene opiniones constantes transmite seguridad y es la primera opción de la zona.
+                    </p>
+                </div>
+
+                <!-- Pregunta 3 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 hover:border-google-blue transition-colors">
+                    <h4 class="text-lg font-bold text-slate-900 flex items-center gap-3 mb-2">
+                        <i class="fa-solid fa-circle-question text-google-blue"></i>
+                        <span>"¿Tengo que ponerme a redactar las respuestas de las opiniones de mis clientes?"</span>
+                    </h4>
+                    <p class="text-slate-600 text-sm leading-relaxed pl-7">
+                        No. Nosotros redactamos y publicamos las respuestas (tanto a comentarios positivos como a criticas o quejas) con un tono profesional, amable y utilizando palabras clave de tu servicio y ciudad para mejorar tu posicionamiento.
+                    </p>
+                </div>
+
+                <!-- Pregunta 4 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 hover:border-google-blue transition-colors">
+                    <h4 class="text-lg font-bold text-slate-900 flex items-center gap-3 mb-2">
+                        <i class="fa-solid fa-circle-question text-google-blue"></i>
+                        <span>"¿Cómo sé qué está pasando con mi perfil?"</span>
+                    </h4>
+                    <p class="text-slate-600 text-sm leading-relaxed pl-7">
+                        Cada mes te enviamos un reporte simple de 1 sola página. Sin términos raros ni rodeos: verás cuántas opiniones nuevas tuviste, tu calificación promedio, cuántas respuestas dimos y cuántas visitas tuvo tu perfil.
+                    </p>
+                </div>
+                <!-- Pregunta 5 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 hover:border-google-blue transition-colors">
+                    <h4 class="text-lg font-bold text-slate-900 flex items-center gap-3 mb-2">
+                        <i class="fa-solid fa-circle-question text-google-blue"></i>
+                        <span>"¿Manejan y administran redes sociales como Facebook e Instagram?"</span>
+                    </h4>
+                    <p class="text-slate-600 text-sm leading-relaxed pl-7">
+                        No manejamos ni administramos redes sociales como Facebook e Instagram. Solo nos enfocamos en optimizar y administrar tu perfil de Google Maps.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROPUESTA DE PRUEBA / CTA FINAL -->
+    <section class="py-20 bg-google-blue text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"></div>
+        
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-8">
+            <h2 class="text-3xl sm:text-5xl font-black tracking-tight">
+                Hagamos una prueba este primer mes
+            </h2>
+            <p class="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto font-normal">
+                Te dejamos todo configurado y trabajando este mes. Si en 30 días no ves más movimiento y mejor imagen en tu perfil, no continúas. Sin contratos forzosos.
+            </p>
+
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://wa.me/524427128200?text=Hola,%20quiero%20comenzar%20a%20optimizar%20mi%20perfil%20de%20Google%20Maps" 
+                   target="_blank"
+                   class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-whatsapp hover:bg-emerald-600 text-white font-bold text-lg px-8 py-4 rounded-2xl shadow-2xl transition-all hover-lift">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    <span>Iniciar Configuración por WhatsApp</span>
+                </a>
+            </div>
+
+            <div class="pt-4 text-xs text-blue-200 flex items-center justify-center gap-6">
+                <span><i class="fa-solid fa-phone me-1"></i> +52 442 712 8200</span>
+                <span><i class="fa-solid fa-clock me-1"></i> Respuesta Inmediata, nuestra atención es por WhatsApp</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-google-blue text-white flex items-center justify-center font-bold text-sm">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <span class="text-white font-bold">CentroWeb</span>
+            </div>
+
+            <p class="text-center md:text-left text-xs text-slate-500">
+                &copy; <script>document.write(new Date().getFullYear())</script> CentroWeb Gestión de Reputación en Google Maps. Todos los derechos reservados.
+            </p>
+
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/524427128200" target="_blank" class="text-slate-400 hover:text-whatsapp transition-colors text-lg">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <a href="https://wa.me/524427128200?text=Hola,%20me%20interesa%20el%20servicio%20de%20Gestión%20de%20Reputación%20en%20Google%20Maps" 
+       target="_blank"
+       aria-label="Contactar por WhatsApp"
+       class="fixed bottom-6 right-6 z-50 bg-whatsapp hover:bg-emerald-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all duration-300 group">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+        <span class="absolute right-20 bg-slate-900 text-white text-xs font-semibold px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-md pointer-events-none">
+            ¡Escríbenos por WhatsApp!
+        </span>
+    </a>
+
+</body>
+</html>
