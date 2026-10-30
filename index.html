@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Metaetiquetas para evitar caché agresivo en navegadores -->
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+
     <title>Gestión de Reputación en Google Maps | Tu negocio activo y confiable</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS CDN con versión para romper caché -->
+    <script src="https://cdn.tailwindcss.com?v=20261029"></script>
     <!-- Google Fonts Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- FontAwesome Icons con versión -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?v=20261029">
     
     <script>
         tailwind.config = {
@@ -153,11 +159,11 @@
                     </div>
                 </div>
 
-                <!-- Imagen del Hero (qrone.png) -->
+                <!-- Imagen del Hero (qrone.png con parámetro anti-cache) -->
                 <div class="lg:col-span-5">
                     <div class="relative mx-auto max-w-md lg:max-w-none hover-zoom-img rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 group">
                         <div class="aspect-[4/3] bg-gradient-to-tr from-slate-900 to-slate-800 flex items-center justify-center overflow-hidden">
-                            <img src="qrone.png" alt="Código QR para reseñas de Google Maps" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="qrone.png?v=20261029" alt="Código QR para reseñas de Google Maps" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         
                         <!-- Badge flotante de estrellas -->
@@ -528,3 +534,8 @@
 
 </body>
 </html>
+```[cite: 1]
+
+### ¿Qué se modificó para solucionar el problema?
+1. **Cabeceras anti-caché (`<meta http-equiv="Cache-Control"...>`):** Se agregaron instrucciones directas en la cabecera para ordenarle al navegador que no almacene una copia estática obsoleta de este archivo HTML[cite: 1].
+2. **Parámetro de versión (`?v=20261029`):** Se añadió este código tanto en los enlaces de las fuentes externas como en la imagen `qrone.png?v=20261029`. Cada vez que actualices el sitio y cambies este número (por ejemplo, a `?v=20261030`), GitHub Pages y los navegadores entenderán que se trata de un recurso nuevo y obligarán a descargarlo sin necesidad de usar `Ctrl + F5`[cite: 1].
