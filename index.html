@@ -9,6 +9,26 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
 
+     <script>
+    // Sistema para romper la caché en dispositivos móviles y hacer que se baje la pagina actualizada
+    (function() {
+        const currentVersion = "20261029-v2"; // Cambia este texto cada vez que hagas modificaciones importantes
+        const storedVersion = localStorage.getItem("site_version");
+        
+        if (storedVersion !== currentVersion) {
+            localStorage.setItem("site_version", currentVersion);
+            // Si las versiones no coinciden, limpia la caché local y recarga forzando al servidor
+            if (storedVersion) {
+                window.location.reload(true);
+            }
+               }
+            })();
+     </script>
+
+
+
+
+
     <title>Gestión de Reputación en Google Maps | Tu negocio activo y confiable</title>
     <!-- Tailwind CSS CDN con versión para romper caché -->
     <script src="https://cdn.tailwindcss.com?v=20261029"></script>
@@ -365,7 +385,7 @@
                         <span class="text-google-yellow">$600 MXN</span>
                     </div>
                     <p class="text-xs text-slate-400 italic">
-                        *Incluye verificación de ficha (su perfil de negocio), corrección total de datos, Optimización de perfil de Google Business (fotos, servicios, horarios, publicaciones), generación de enlace directo y diseño del QR listo para imprimir.
+                        .
                     </p>
                     
                     <hr class="border-slate-700/50 my-4">
@@ -373,11 +393,16 @@
                     <ul class="space-y-3 text-slate-200">
                         <li class="flex items-center gap-3">
                             <i class="fa-solid fa-check text-whatsapp"></i>
+                            <span>Si ya tiene un perfil en Google Business Profile, lo revisamos antes de iniciar el servicio. Si no
+                                cuenta con el perfil, lo crearemos según los datos y fotos de su negocio.</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-check text-whatsapp"></i>
                             <span>Respondemos a opiniones de tus clientes en 24-48 horas.</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fa-solid fa-check text-whatsapp"></i>
-                            <span>Te enviamos un reporte mensual de 1 sola página explicando claramente el comportamiento de tus reseñas.</span>
+                            <span>Te enviamos un reporte mensual de 1 sola página detallando Claramente el comportamiento de las reseñas.</span>
                         </li>
                     </ul>
                 </div>
@@ -529,8 +554,3 @@
         
 </body>
 </html>
-```[cite: 1]
-
-### ¿Qué se modificó para solucionar el problema?
-1. **Cabeceras anti-caché (`<meta http-equiv="Cache-Control"...>`):** Se agregaron instrucciones directas en la cabecera para ordenarle al navegador que no almacene una copia estática obsoleta de este archivo HTML[cite: 1].
-2. **Parámetro de versión (`?v=20261029`):** Se añadió este código tanto en los enlaces de las fuentes externas como en la imagen `qrone.png?v=20261029`. Cada vez que actualices el sitio y cambies este número (por ejemplo, a `?v=20261030`), GitHub Pages y los navegadores entenderán que se trata de un recurso nuevo y obligarán a descargarlo sin necesidad de usar `Ctrl + F5`[cite: 1].
