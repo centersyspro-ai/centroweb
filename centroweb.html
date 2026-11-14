@@ -12,7 +12,7 @@
      <script>
     // Sistema para romper la caché en dispositivos móviles y hacer que se baje la pagina actualizada
     (function() {
-        const currentVersion = "20261029-v3"; // Versión actualizada para forzar recarga en móviles
+        const currentVersion = "20261114-v4"; // Versión actualizada para forzar recarga en móviles
         const storedVersion = localStorage.getItem("site_version");
         
         if (storedVersion !== currentVersion) {
@@ -27,11 +27,11 @@
 
     <title>Gestión de Reputación en Google Maps | Tu negocio activo y confiable</title>
     <!-- Tailwind CSS CDN con versión para romper caché -->
-    <script src="https://cdn.tailwindcss.com?v=20261029"></script>
+    <script src="https://cdn.tailwindcss.com?v=20261114"></script>
     <!-- Google Fonts Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons con versión -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?v=20261029">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?v=20261114">
     
     <script>
         tailwind.config = {
@@ -179,7 +179,7 @@
                 <div class="lg:col-span-5">
                     <div class="relative mx-auto max-w-md lg:max-w-none hover-zoom-img rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 group">
                         <div class="aspect-[4/3] bg-gradient-to-tr from-slate-900 to-slate-800 flex items-center justify-center overflow-hidden">
-                            <img src="qrone.png?v=20261029" alt="Código QR para reseñas de Google Maps" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="qrone.png?v=20261114" alt="Código QR para reseñas de Google Maps" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         
                         <!-- Badge flotante de estrellas -->
@@ -320,6 +320,17 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN VIDEO 3 CENTRADO -->
+    <section class="py-16 bg-slate-900 text-white relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="relative w-full max-w-xs mx-auto rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-700 bg-black">
+                <div class="aspect-[2/3] flex items-center justify-center">
+                    <video src="video3.mp4" controls playsinline class="w-full h-full object-cover"></video>
+                </div>
             </div>
         </div>
     </section>
